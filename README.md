@@ -1,5 +1,27 @@
 # [![Mattermost logo](https://user-images.githubusercontent.com/7205829/137170381-fe86eef0-bccc-4fdd-8e92-b258884ebdd7.png)](https://mattermost.com)
 
+## Mattermost CI/CD Automation Project
+
+This repository includes an automated CI/CD pipeline for building and publishing a customized Mattermost Server Docker image.
+The pipeline utilizes GitHub Actions to automate building and pushing the Mattermost image to Docker Hub upon changes to the `main` branch.
+
+### Quick Start (Deploying Custom Image via Docker)
+
+To pull and run the customized Mattermost image locally from Docker Hub:
+
+1. **Pull the latest image:**
+   ```bash
+   docker pull <YOUR_DOCKER_USERNAME>/mattermost-custom:latest
+   ```
+2. **Run the Mattermost container:**
+   ```bash
+   docker run -d --name mattermost-custom -p 8065:8065 <YOUR_DOCKER_USERNAME>/mattermost-custom:latest
+   ```
+3. **Access Mattermost:**
+   Open a web browser and navigate to `http://localhost:8065` to configure your server.
+
+---
+
 [Mattermost](https://mattermost.com) is an open source platform for secure collaboration across the entire software development lifecycle. This repo is the primary source for core development on the Mattermost platform; it's written in Go and React and runs as a single Linux binary with MySQL or PostgreSQL. A new compiled version is released under an MIT license every month on the 16th.
 
 [Deploy Mattermost on-premises](https://mattermost.com/deploy/?utm_source=github-mattermost-server-readme), or [try it for free in the cloud](https://mattermost.com/sign-up/?utm_source=github-mattermost-server-readme).
