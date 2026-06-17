@@ -11,7 +11,7 @@ services:
       MYSQL_USER: mmuser
       MYSQL_DATABASE: mattermost_test
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       interval: 5s
       timeout: 10s
       retries: 3
@@ -34,7 +34,7 @@ services:
       MYSQL_USER: mmuser
       MYSQL_DATABASE: mattermost_test
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       interval: 5s
       timeout: 10s
       retries: 3
@@ -51,8 +51,8 @@ services:
       POSTGRES_DB: mattermost_test
     command: postgres -c 'config_file=/etc/postgresql/postgresql.conf'
     volumes:
-     - "./docker/postgres.conf:/etc/postgresql/postgresql.conf"
-     - "./docker/postgres_node_database.sql:/docker-entrypoint-initdb.d/postgres_node_database.sql"
+      - "./docker/postgres.conf:/etc/postgresql/postgresql.conf"
+      - "./docker/postgres_node_database.sql:/docker-entrypoint-initdb.d/postgres_node_database.sql"
     healthcheck:
       test: [ "CMD", "pg_isready", "-h", "localhost" ]
       interval: 5s
@@ -139,7 +139,7 @@ services:
       KC_HOSTNAME_STRICT_HTTPS: 'false'
       KC_HTTP_ENABLED: 'true'
     volumes:
-     - "./docker/keycloak/realm-export.json:/opt/keycloak/data/import/realm-export.json"
+      - "./docker/keycloak/realm-export.json:/opt/keycloak/data/import/realm-export.json"
   prometheus:
     image: "prom/prometheus:v2.46.0"
     user: root
